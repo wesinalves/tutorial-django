@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block menu %}
+<a href="{% url 'polls:index' %}">Home</a> | 
+{% endblock menu %}
+
+{% block main %}
+<h1 class="text-xl">Deseja excluir a questão {{question.question_text}}?</h1>
+<form method="post" class="w-150">
+    {%csrf_token%}
+    <div class="flex">
+    <button type="submit" class="block bg-red-800 px-3 py-3 rounded-md mt-3 text-white">Sim</button>
+    <a href="{% url 'polls:index' %}" class="bg-gray-800 px-3 py-3 rounded-md mt-3 text-white ml-2">Não</a>
+    </div>
+</form>
+{% endblock main %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block menu %}
+<a href="{% url 'polls:index' %}">Home</a> | 
+<a href="{% url 'polls:question-add' %}">Nova questão</a> | 
+<a href="{% url 'polls:choice-add' %}">Nova opção</a> | 
+<a href="{% url 'polls:choice-delete' choice.id %}">Deletar</a> 
+{% endblock menu%}
+
+{% block main %}
+<p>Questão: {{choice.question}}</p>
+<p>Texto: {{choice.choice_text}}</p>
+<p>Votos: {{choice.vote}}</p>
+{% endblock main%}
